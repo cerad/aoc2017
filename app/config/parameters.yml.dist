@@ -16,4 +16,11 @@ parameters:
     mailer_password:   ~
 
     # A secret key that's used to generate certain security-related tokens
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret: ThisTokenIsNotSoSecretChangeIt
+
+    secure_routes: true # If true, Process _role parameter in routes
+
+    show_header_image:  true
+    show_results_menu:  false
+    show_final_results: false
+

@@ -1,14 +1,45 @@
-Symfony Standard Edition
+AYSO Open Cup 2017
 ========================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
-
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
-
-What's inside?
+Install
 --------------
+
+Use composer install (as oppsoed to update) to install or update.  
+This ensures that composer.lock will be used which in turn means that the same software versions will be used.
+
+Changes from ng2016
+--------------
+
+Renamed the Action directory to Module.
+
+Using the Action Domain Responder nomenclature. 
+https://github.com/pmjones/adr
+So Controller renamed to Action and View renamed to Responder.
+
+Thought about moving the various module services files to app/config/services per the docs.
+This would avoid the need for the DI extension.
+Could probably do the same thing with routing.
+But going to keep then under Module for now for consistency.
+
+Also considered making individual bundles but want to avoid the mess that ng2014 turned into.
+Might still try it later.
+CommonBundle
+AppBundle
+UserBundle
+RegPersonBundle
+RegTeamBundle
+GameBundle
+
+Traits
+
+For ng2016 had a bewildering set of abstract controller/view/form classes.
+Trying to clean it up.
+
+Have an ActionTrait which in turn uses RouteTrait and SecurityTrait.
+Added setter injections for rthe required services.
+Might want a LoggerTrait as well later.
+
+Reused the RouteTrait and SecurityTrait for the KernelListener.
 
 The Symfony Standard Edition is configured with the following defaults:
 

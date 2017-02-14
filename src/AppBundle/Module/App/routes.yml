@@ -1,0 +1,46 @@
+
+app_index:
+    path: /
+    defaults:
+        _controller: app_index_action
+
+app_welcome:
+    path: /welcome
+    defaults:
+        _responder:  app_welcome_responder
+        _controller: app_welcome_action
+
+app_home:
+    path: /home
+    defaults:
+        _role:       ROLE_USER
+        _responder:  app_home_responder
+        _controller: app_home_action
+
+# TODO Cleanup
+app_admin:
+    path: /admin
+    defaults:
+        _role:       ROLE_STAFF
+        _view:       admin_view
+        _controller: admin_controller
+
+app_text_alerts:
+    path: /textalerts
+    defaults:
+        _view:       text_alerts_view
+        _controller: text_alerts_controller
+
+detailed_instruction:
+    path: /self-assigning
+    defaults:
+        fileType: pdf # For future use, only pdf is currently supported
+        fileName: Referee_Self-Assigning.pdf
+        _controller: file_controller
+
+assignor_instruction:
+    path: /assigning
+    defaults:
+        fileType: pdf # For future use, only pdf is currently supported
+        fileName: referee_assigning.pdf
+        _controller: file_controller
