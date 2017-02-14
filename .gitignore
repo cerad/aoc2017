@@ -19,3 +19,7 @@
 /bin/symfony_requirements
 /tests/
 /var/SymfonyRequirements.php
+/node_modules/
+/web/css/
+/web/images/
+/web/js/
