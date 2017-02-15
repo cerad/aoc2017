@@ -1,0 +1,161 @@
+project:
+    info:
+        key: AYSOOpenCup2017
+
+        slugs: [opencup, aoc2017]
+
+        status: Active
+                
+        fedId:     AYSO
+        fedRoleId: AYSOV
+
+        abbv:    "AOC2017"
+        title:   "AYSO Open Cup 2017"
+        desc:    "AYSO National Games 2016 - Palm Beach County, Florida - July 5th to July 10th"
+        prefix:  'AOC2017'
+
+        regYear: 'MY2015'
+
+        support:
+            name:    "Arthur Hundiak"
+            email:   "ahundiak@gmail.com"
+            phone:   "256-457-5943"
+            subject: "AOC2017 zAYSO question..."
+
+        schedules:
+            name: "Rick Roberts"
+            email: "web.ng2016@gmail.com"
+            subject: "NG2016 schedule question..."
+            phone: 310-920-8209
+            
+        assignor:
+            name:  "Pat Mullane"
+            email: "mullane.patrick@comcast.net"
+            subject: "Referee Assignments"
+            phone:  312-217-1869
+
+        administrator:
+            name:  "Tom Bobadilla"
+            email: "thomasbobadilla@ayso.org"
+            subject: "Question for NG Referee Administrator"
+            phone:  562-547-4457
+
+        system:
+            name:  "Zayso Admin"
+            email: "noreply@zayso.org"
+            phone:  ""
+
+        dates:
+            #- '2016-07-06' # Wed Soccerfest
+            #- '2016-07-07' # Thu Pool Play
+            #- '2016-07-08' # Fri Pool Play
+            #- '2016-07-09' # Sat Pool Play and Quarter Finals
+            #- '2016-07-10' # Sun Semi and Finals
+            '2014-07-02': Wed # Soccerfest 2014
+            '2014-07-03': Thu # Pool Play
+            '2014-07-04': Fri # Pool Play
+            '2014-07-05': Sat # Pool Play and Quarter Finals
+            '2014-07-06': Sun # Semi and Finals
+
+        programs:
+            Core: Core
+
+        genders:
+            B:  Boys
+            G:  Girls
+
+        ages:
+            VIP: VIP
+            U10: U10
+            U12: U12
+            U14: U14
+            U16: U16
+            U19: U19
+
+        search_defaults:
+            projects: ['AYSONationalGames2014']
+            programs: ['Core']
+            dates:    ['2014-07-03']
+            genders:  ['B']
+            ages:     ['U12']
+
+        search_controls:
+            dates:
+                label: Days
+            programs:
+                label: Programs
+            genders:
+                label: Genders
+            ages:
+                label: Ages
+
+        choices:
+            dates:
+                '2014-07-02': Wed # Soccerfest
+                '2014-07-03': Thu # Pool Play
+                '2014-07-04': Fri # Pool Play
+                '2014-07-05': Sat # Pool Play and Quarter Finals
+                '2014-07-06': Sun # Semi and Finals
+
+            programs:
+                Core:  Core
+                Extra: Extra
+
+            genders:
+                B: Boys
+                G: Girls
+
+            ages:
+                VIP: VIP
+                U10: U10
+                U12: U12
+                U14: U14
+                U16: U16
+                U19: U19
+
+            pools:
+                Core:
+                    B:
+                        U10: [A,B,C,D,E,F,G,H,I,J,K,L]
+                        U12: [A,B,C,D]
+                        U14: [A,B,C,D]
+                        U16: [A,B,C,D]
+                        U19: [A,B,C,D]
+                    G:
+                        U10: [A,B,C,D,E,F,G,H,I,J,K,L]
+                        U12: [A,B,C,D]
+                        U14: [A,B,C,D]
+                        U16: [A,B,C,D]
+                        U19: [A,B,C,D]
+
+        levels:
+            AYSO_U10B_Core:
+                program: Core
+                gender:  B
+                age:     U10
+                div:     U10B
+
+            AYSO_U10G_Core:
+                program: Core
+                gender:  G
+                age:     U10
+                div:     U10G
+
+            AYSO_U12B_Core:
+                program: Core
+                gender:  B
+                age:     U12
+                div:     U12B
+
+            AYSO_U12G_Core:
+                program: Core
+                gender:  G
+                age:     U12
+                div:     U12G
+
+        pools:
+
+        venues:
+            Polo: Polo Grounds
+
+        fields:

@@ -2,6 +2,7 @@
 namespace AppBundle\Module\App\Base;
 
 use AppBundle\Common\RenderEscapeTrait;
+use AppBundle\Module\Project\Project;
 
 class BaseTemplate
 {
@@ -9,18 +10,15 @@ class BaseTemplate
 
     private $content = null;
 
-    private $project = [
-        'abbv'    => 'AOC2017',
-        'title'   => 'AYSO Open Cup',
-        'support' => [
-            'name'    => 'support_name',
-            'email'   => 'support_email',
-            'phone'   => 'support_phone',
-            'subject' => 'support_subject'
-        ],
-    ];
+    /** @var  Project */
+    private $project;
+
     private $showHeaderImage = true;
 
+    public function setProject(Project $project)
+    {
+        $this->project = $project;
+    }
     public function setContent($content)
     {
         $this->content = $content;
@@ -44,12 +42,14 @@ EOT;
     /*  DOC & Header  */
     protected function renderHead()
     {
+        $title = $this->escape($this->project->abbv);
+
         return <<<EOT
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{$this->escape($this->project['abbv'])}</title>
+    <title>{$title}</title>
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/images/favicon.ico">
     <link rel="apple-touch-icon" type="image/png" href="/images/apple-touch-icon-72x72.png"><!-- iPad -->
     <link rel="apple-touch-icon" type="image/png" sizes="114x114" href="/images/apple-touch-icon-114x114.png"><!-- iPhone4 -->
@@ -64,12 +64,14 @@ EOT;
     }
     protected function renderBanner()
     {
+        $title = $this->escape($this->project->title);
+
         if (!$this->showHeaderImage) {
             $html = <<<EOT
 <div id="banner">
   <h1>
     <a href="http://www.aysonationalgames.org/" target="_blank"><img src="/images/National_Games.png" height="30" alt="National Games"></a>
-      {$this->escape($this->project['title'])}
+      {$title}
   </h1>
 </div>
 EOT;
@@ -90,14 +92,20 @@ EOT;
     /* Footer item go here */
     protected function renderFooter()
     {
+        $support = $this->project->support;
+        $supportName    = $this->escape($support->name);
+        $supportEmail   = $this->escape($support->email);
+        $supportPhone   = $this->escape($support->phone);
+        $supportSubject = $this->escape($support->subject);
+
         return
             <<<EOT
 <div class="cerad-footer">
   <br />
   <hr>
-  <p> zAYSO - For assistance contact {$this->project['support']['name']} at
-      <a href="mailto:{$this->project['support']['email']}?subject={$this->project['support']['subject']}">{$this->project['support']['email']}</a>
-      or {$this->project['support']['phone']} 
+  <p> zAYSO - For assistance contact {$supportName} at
+      <a href="mailto:{$supportEmail}?subject={$supportSubject}">{$supportEmail}</a>
+      or {$supportPhone} 
   </p>
 </div>    
 <div class="clear-both"></div>
