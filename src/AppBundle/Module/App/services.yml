@@ -17,6 +17,17 @@ services:
             - [setContainer,        ['@service_container']]
             - [setRouteServices,    ['@router','@request_stack']]
             - [setSecurityServices, ['@security.token_storage','@security.authorization_checker','@security.authentication_utils']]
+
+
+    common_abstract_responder:
+        abstract: true
+        calls:
+            - [setRouteServices, ['@router','@request_stack']]
+            - [setBaseTemplate,  ['@app_base_template']]
+
+    app_base_template:
+        class:  AppBundle\Module\App\Base\BaseTemplate
+
     # Index
     app_index_action:
         class:  AppBundle\Module\App\Index\IndexAction
@@ -26,3 +37,7 @@ services:
     app_welcome_action:
         class:  AppBundle\Module\App\Welcome\WelcomeAction
         parent: common_abstract_action
+
+    app_welcome_responder:
+        class:  AppBundle\Module\App\Welcome\WelcomeResponder
+        parent: common_abstract_responder

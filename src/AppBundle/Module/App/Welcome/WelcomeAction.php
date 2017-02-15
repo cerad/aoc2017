@@ -4,7 +4,6 @@ namespace AppBundle\Module\App\Welcome;
 
 use AppBundle\Common\ActionTrait;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class WelcomeAction
 {
@@ -12,6 +11,10 @@ class WelcomeAction
 
     public function __invoke(Request $request)
     {
-        return new Response('Welcome ' . $this->getCurrentRouteName());
+        // Verify not signed in
+        if ($this->isGranted('ROLE_USER')) {
+            return $this->redirectToRoute('app_home');
+        }
+        return null;
     }
 }
