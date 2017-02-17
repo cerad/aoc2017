@@ -11,6 +11,9 @@ class Project
     public $desc;
     public $prefix;
 
+    public $bannerHref;
+    public $bannerImage;
+
     /** @var  ProjectContact */
     public $support;
 

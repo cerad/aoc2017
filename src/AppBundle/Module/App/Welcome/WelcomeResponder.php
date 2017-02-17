@@ -22,7 +22,7 @@ class WelcomeResponder
     {
         $content = <<<EOT
   <div id="welcome">
-    <legend>Welcome to the AYSO National Games 2016</legend>
+    <legend>Welcome to Here</legend>
   </div>
 EOT;
         return $this->renderBaseTemplate($content);

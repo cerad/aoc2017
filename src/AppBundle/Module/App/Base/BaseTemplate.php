@@ -13,8 +13,6 @@ class BaseTemplate
     /** @var  Project */
     private $project;
 
-    private $showHeaderImage = true;
-
     public function setProject(Project $project)
     {
         $this->project = $project;
@@ -31,10 +29,14 @@ class BaseTemplate
 {$this->renderHead()}
 <body>
   {$this->renderBanner()}
+  <div id="layout-topmenu">
+    {$this->renderTopMenu()}
+  </div>
   <div class="container">
     {$this->content}
   </div>
   {$this->renderFooter()}
+  {$this->renderScripts()}
 </body>
 </html>
 EOT;
@@ -64,29 +66,17 @@ EOT;
     }
     protected function renderBanner()
     {
-        $title = $this->escape($this->project->title);
+        $desc  = $this->escape($this->project->desc);
+        $href  = $this->project->bannerHref;
+        $image = $this->project->bannerImage;
 
-        if (!$this->showHeaderImage) {
-            $html = <<<EOT
-<div id="banner">
-  <h1>
-    <a href="http://www.aysonationalgames.org/" target="_blank"><img src="/images/National_Games.png" height="30" alt="National Games"></a>
-      {$title}
-  </h1>
-</div>
-EOT;
-        }
-        else {
-            $html = <<<EOT
+        $html = <<<EOT
 <div class="skBanners">
-  <a href="http://www.aysonationalgames.org/" target="_blank"><img class="width-90" src="/images/header-ipad_01.png"></a>
-        <center class="skFont  width-90">AYSO WELCOMES YOU TO PALM BEACH COUNTY, FLORIDA, JULY 5-10, 2016</center>
+  <a href="{$href}" target="_blank"><img class="width-90" src="/images/{$image}"></a>
+  <center class="skFont width-90">{$desc}</center>
 </div>
 EOT;
-        }
-
         return $html;
-
     }
 
     /* Footer item go here */
@@ -110,6 +100,45 @@ EOT;
 </div>    
 <div class="clear-both"></div>
 </div>
+EOT;
+    }
+    protected function renderTopMenu()
+    {
+        $html = <<<EOT
+<nav class="navbar navbar-default">        
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topmenu">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>  <!-- navbar-header -->
+           
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div id="topmenu" class="collapse navbar-collapse">
+EOT;
+  //      $html .= $this->renderMenuForGuest();
+
+  //      $html .= $this->renderMenuForUser();
+
+        $html .= <<<EOT
+  </div><!-- navbar-collapse -->
+</nav>
+EOT;
+        return $html;
+    }
+    protected function renderScripts()
+    {
+        return <<<EOT
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- Latest compiled and minified JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.2/js/fileinput.min.js"></script>
+<!-- compiled project js -->
+<script src="/js/zayso.js"></script>
 EOT;
     }
 

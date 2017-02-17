@@ -18,7 +18,11 @@ class ProjectFinder
         $project->abbv   = $info['abbv'];
         $project->title  = $info['title'];
         $project->desc   = $info['desc'];
+
         $project->prefix = $info['prefix'];
+
+        $project->bannerHref   = $info['bannerHref'];
+        $project->bannerImage  = $info['bannerImage'];
 
         $project->support = ProjectContact::createFromArray($info['support']);
 

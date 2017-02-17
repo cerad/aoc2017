@@ -41,6 +41,8 @@ Might want a LoggerTrait as well later.
 
 Reused the RouteTrait and SecurityTrait for the KernelListener.
 
+Trying to move as much project specific stuff as possible into the project yaml file.
+
 The Symfony Standard Edition is configured with the following defaults:
 
   * An AppBundle you can use to start coding;

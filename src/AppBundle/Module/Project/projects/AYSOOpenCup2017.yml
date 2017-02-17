@@ -2,19 +2,22 @@ project:
     info:
         key: AYSOOpenCup2017
 
-        slugs: [opencup, aoc2017]
+        slugs: [aoc, aoc2017]
 
         status: Active
                 
         fedId:     AYSO
         fedRoleId: AYSOV
 
-        abbv:    "AOC2017"
+        abbv:    "AOC2017" # html title
         title:   "AYSO Open Cup 2017"
-        desc:    "AYSO National Games 2016 - Palm Beach County, Florida - July 5th to July 10th"
-        prefix:  'AOC2017'
+        desc:    "AYSO Open Cup 2017 - Lancaster National Soccer Center, Lancaster. CA - July 13th to July 16th"
+        prefix:  'AOC2017' # email prefix
 
-        regYear: 'MY2015'
+        bannerHref:    "http://www.aysonationalgames.org"
+        bannerImage:   "header-ipad_01.png"
+
+        regYear: 'MY2016'
 
         support:
             name:    "Arthur Hundiak"
